@@ -7,25 +7,31 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View { //todas las estructuras de swiftUI se destruyen y se construyen siempre
+    
+    //pero con @state se hacen que se mantenga eso
+    @State private var isNight: Bool = false // fuente de la verda
+    
+    
+    
     var body: some View {
         
         ZStack{ // solo puede tener 10 views: VStask, spacer, botones,etc // es importante el tab
             
-            BackgroudView(topColor: .blue, bottomColor: Color("lightBlue"))
+            BackgroudView(isNight: $isNight) // le paso a BackgrpundView una vinculacion con `isNight`
             
             VStack{ // vs1
                 
                 cityTextView(cityName: "Guayaquil, ECU")
             
-                mainWeatherView(imageName: "cloud.sun.fill", temperature: 40)//Vstack con  imagen y temperatura
+                mainWeatherView(imageName: "cloud.sun.fill", temperature: 24)//Vstack con  imagen y temperatura
                 
                 HStack (spacing: 25){
                     
-                    WeatherDayView(dayOfWeek: "MON", ImageName: "sunrise.fill", temperature: 24) //sub vista extraida para acortar codigo
+                    WeatherDayView(dayOfWeek: "MON", ImageName: "sunrise.fill", temperature: 27) //sub vista extraida para acortar codigo
                     WeatherDayView(dayOfWeek: "TUE", ImageName: "cloud.fog.fill", temperature: 24) //sub vista extraida para acortar codigo
-                    WeatherDayView(dayOfWeek: "WED", ImageName: "cloud.bolt.fill", temperature: 24) //sub vista extraida para acortar codigo
-                    WeatherDayView(dayOfWeek: "THU", ImageName: "cloud.sun.fill", temperature: 24) //sub vista extraida para acortar codigo
+                    WeatherDayView(dayOfWeek: "WED", ImageName: "cloud.bolt.fill", temperature: 20) //sub vista extraida para acortar codigo
+                    WeatherDayView(dayOfWeek: "THU", ImageName: "cloud.sun.fill", temperature: 29) //sub vista extraida para acortar codigo
                     WeatherDayView(dayOfWeek: "FRI", ImageName: "sunrise.fill", temperature: 24) //sub vista extraida para acortar codigo
                     
                 }// .padding()
@@ -33,7 +39,7 @@ struct ContentView: View {
             Spacer()
                 
                 Button {
-                    print("You activate the button")
+                    isNight.toggle()// toggle para cambiar de true a false
                 } label: {
                     
                     weatherButton(title: "Change day time", textColor: .blue, bgColor: .white) // hacer el boton reusable
@@ -88,12 +94,11 @@ struct WeatherDayView: View {
 struct BackgroudView : View {
     
     //Las variable que no son view de declaran primoero
-    var topColor : Color
-    var bottomColor : Color
+    @Binding var isNight: Bool
     
     var body: some View {
         
-        LinearGradient(colors: [topColor, bottomColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+        LinearGradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("lightBlue")], startPoint: .topLeading, endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
     }
 }
