@@ -83,7 +83,8 @@ struct WeatherDayView: View {
             Image(systemName: ImageName)
                 .renderingMode(.original)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+               //   .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .frame(width: 30, height: 30)
             Text("\(temperature)°")
                 .foregroundColor(.white)
@@ -94,7 +95,7 @@ struct WeatherDayView: View {
 struct BackgroudView : View {
     
     //Las variable que no son view de declaran primoero
-    @Binding var isNight: Bool
+    @Binding var isNight: Bool 
     
     var body: some View {
         
