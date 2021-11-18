@@ -8,11 +8,11 @@ With this experience, I can improve and be more fast in my ios development.
 
 ## Screenshots
 
-**Light mode** 🖼
+* **Light mode** 🖼
 
 ![waLightMode](https://user-images.githubusercontent.com/79861715/142499864-d6d0825f-cb31-4443-9bb1-a0942aea5e0b.png)
 
-**Dark mode** 🌌
+* **Dark mode** 🌌
 
 ![waDarkMode](https://user-images.githubusercontent.com/79861715/142499882-be1884e8-b97f-4be1-8fea-e79f8a3985af.png)
 
