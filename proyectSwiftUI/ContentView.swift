@@ -24,7 +24,7 @@ struct ContentView: View { //todas las estructuras de swiftUI se destruyen y se 
                 
                 cityTextView(cityName: "Guayaquil, ECU")
             
-                mainWeatherView(imageName: "cloud.sun.fill", temperature: 24)//Vstack con  imagen y temperatura
+                mainWeatherView(imageName: "cloud.sun.fill", temperature: 30)//Vstack con  imagen y temperatura
                 
                 HStack (spacing: 25){
                     
